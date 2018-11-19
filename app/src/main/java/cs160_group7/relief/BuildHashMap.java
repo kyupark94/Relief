@@ -1,4 +1,4 @@
-package com.example.mharris.relief;
+//insert package here
 
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;

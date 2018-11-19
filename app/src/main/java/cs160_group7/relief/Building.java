@@ -1,5 +1,6 @@
-package com.example.mharris.relief;
+//insert package here
 
+import java.util.List;
 
 public class Building {
     double rating;
@@ -8,6 +9,9 @@ public class Building {
     double longitude;
     String details;
     String name;
+    List<String> reviews;
+    List<Double> ratings;
+    List<Double> cleanlinessRatings;
 
     public Building(double lat, double lon, String det, String name_){
 
