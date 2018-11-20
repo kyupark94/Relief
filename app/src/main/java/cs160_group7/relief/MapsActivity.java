@@ -1,6 +1,5 @@
 package cs160_group7.relief;
 
-import android.graphics.Bitmap;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +12,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -28,6 +28,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<Building> buildingList = new ArrayList<>();
     static RecyclerView rv;
     String state = "distance";
+    double curLat = 37.8721;
+    double curLong = -122.2578;
 
 
     @Override
@@ -38,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
 
         // Recycle View && Person Cards Handling
         rv = (RecyclerView) findViewById(R.id.cardList);
@@ -62,19 +65,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.getUiSettings().setZoomControlsEnabled(true);
 
         // Add a marker in Campanile and move the camera
-        LatLng Campanile = new LatLng(37.8, -122.3);
-        mMap.addMarker(new MarkerOptions().position(Campanile).title("Marker in Campanile"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Campanile));
+        // TODO: change hardcoded curLat, curLong
+        LatLng Campanile = new LatLng(curLat, curLong);
+        mMap.addMarker(new MarkerOptions().position(Campanile).title("Campanile"));
+        pinAllBuildings();
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Campanile, 18.0f));
+
     }
+
+
+    public void pinAllBuildings() {
+        for (Building b : buildingList) {
+            LatLng loc = new LatLng(b.latitude, b.longitude);
+            mMap.addMarker(new MarkerOptions().position(loc).title(b.name));
+        }
+    }
+
 
     void initializeAdapter() {
         buildingMap = BuildHashMap.buildHashMap(getAssets());
         buildingList = new ArrayList<>(buildingMap.values());
         sortBuildingList();
         Log.d("buildingList", buildingList.toString());
-        BuildingAdapter adapter = new BuildingAdapter(buildingList);
+        BuildingAdapter adapter = new BuildingAdapter(buildingList, curLat, curLong);
         rv.setAdapter(adapter);
     }
 
@@ -123,8 +140,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             buildingList.sort(new Comparator<Building>() {
                 @Override
                 public int compare(Building o1, Building o2) {
-                    double d1 = Math.sqrt(Math.pow(37.8 - o1.latitude, 2.0) + Math.pow(-122.3 - o1.longitude, 2.0));
-                    double d2 = Math.sqrt(Math.pow(37.8 - o2.latitude, 2.0) + Math.pow(-122.3 - o2.longitude, 2.0));
+                    double d1 = Math.sqrt(Math.pow(curLat - o1.latitude, 2.0) + Math.pow(curLong - o1.longitude, 2.0));
+                    double d2 = Math.sqrt(Math.pow(curLat - o2.latitude, 2.0) + Math.pow(curLong - o2.longitude, 2.0));
                     if (d1 < d2) return -1;
                     if (d1 > d2) return 1;
                     return 0;
