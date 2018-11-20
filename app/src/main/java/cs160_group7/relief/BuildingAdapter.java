@@ -9,14 +9,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
-public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ContactViewHolder> {
 
-    private List<BuildingInfo> buildingList;
+public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
 
-    public BuildingAdapter(List<BuildingInfo> contactList) {
-        this.buildingList = contactList;
+    private List<Building> buildingList;
+
+    public BuildingAdapter(List<Building> bList) {
+        this.buildingList = bList;
     }
 
     @Override
@@ -24,35 +26,37 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Contac
         return buildingList.size();
     }
 
+    // TODO: remove hardcoded location
     @Override
-    public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
-        final BuildingInfo ci = buildingList.get(i);
-        contactViewHolder.vName.setText(ci.name);
-        contactViewHolder.vDistance.setText(ci.distance);
-        contactViewHolder.vRating.setText(ci.rating);
-        contactViewHolder.vOpenHours.setText(ci.openHours);
-        contactViewHolder.vBuildingImg.setImageBitmap(ci.image);
+    public void onBindViewHolder(BuildingViewHolder BuildingViewHolder, int i) {
+        final Building bi = buildingList.get(i);
+        BuildingViewHolder.vName.setText(bi.name);
+        double distance = Math.sqrt(Math.pow(37.8 - bi.latitude, 2.0) + Math.pow(-122.3 - bi.longitude, 2.0));
+        BuildingViewHolder.vDistance.setText(new DecimalFormat("0.00#").format(distance));
+        BuildingViewHolder.vRating.setText(new DecimalFormat("0.0#").format(bi.rating));
+        BuildingViewHolder.vOpenHours.setText(bi.openHours);
+        BuildingViewHolder.vBuildingImg.setImageDrawable(BuildingViewHolder.vBuildingImg.getContext().getDrawable(R.drawable.ic_launcher_background));
 
-        contactViewHolder.vDetailsButton.setOnClickListener(new View.OnClickListener(){
+        BuildingViewHolder.vDetailsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DetailedView.class);
-                intent.putExtra("name", ci.name);
+                intent.putExtra("name", bi.name);
                 v.getContext().startActivity(intent);
             }
         });
     }
 
     @Override
-    public ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public BuildingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.card_layout, viewGroup, false);
 
-        return new ContactViewHolder(itemView);
+        return new BuildingViewHolder(itemView);
     }
 
-    public static class ContactViewHolder extends RecyclerView.ViewHolder {
+    public static class BuildingViewHolder extends RecyclerView.ViewHolder {
         protected TextView vName;
         protected TextView vDistance;
         protected TextView vRating;
@@ -60,7 +64,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Contac
         protected ImageView vBuildingImg;
         protected Button vDetailsButton;
 
-        public ContactViewHolder(View v) {
+        public BuildingViewHolder(View v) {
             super(v);
             vName =  (TextView) v.findViewById(R.id.name);
             vDistance = (TextView) v.findViewById(R.id.distance);
