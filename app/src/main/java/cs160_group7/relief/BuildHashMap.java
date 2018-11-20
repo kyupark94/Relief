@@ -1,8 +1,15 @@
-//insert package here
+package cs160_group7.relief;
+
+import android.content.res.AssetManager;
 
 import org.json.simple.parser.JSONParser;
+
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Set;
 import org.json.simple.parser.ParseException;
@@ -13,7 +20,7 @@ import org.json.simple.parser.ParseException;
 
 public class BuildHashMap {
 
-    public static HashMap<String, Building> buildHashMap(String JSONFilepath){
+    public static HashMap<String, Building> buildHashMap(AssetManager am){
 
         HashMap<String, Building> map = new HashMap<>();
 
@@ -21,7 +28,7 @@ public class BuildHashMap {
 
         try {
 
-            org.json.simple.JSONObject jsonObj = (org.json.simple.JSONObject) parser.parse(new FileReader(JSONFilepath));
+            org.json.simple.JSONObject jsonObj = (org.json.simple.JSONObject) parser.parse(new InputStreamReader(am.open("relief.json")));
             System.out.println(jsonObj);
 
 

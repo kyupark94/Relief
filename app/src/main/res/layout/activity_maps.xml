@@ -14,9 +14,59 @@
         android:layout_height="400dp"
         tools:context=".MapsActivity" />
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Filters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Filters"
+                android:textSize="18sp"
+                android:paddingRight="5dp"/>
+
+            <Button
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Distance" />
+
+            <Button
+                android:id="@+id/openNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Open Now" />
+
+            <Button
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rating" />
+
+            <Button
+                android:id="@+id/cleanliness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cleanliness" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp" >
+
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

@@ -1,4 +1,4 @@
-//insert package here
+package cs160_group7.relief;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ public class Building {
     double longitude;
     String details;
     String name;
+    String openHours;
     List<String> reviews;
     List<Double> ratings;
     List<Double> cleanlinessRatings;
