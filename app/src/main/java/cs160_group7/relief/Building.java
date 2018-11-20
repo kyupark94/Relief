@@ -22,4 +22,8 @@ public class Building {
         name = name_;
     }
 
+    public void setRating(double r) {
+        rating = r;
+    }
+
 }

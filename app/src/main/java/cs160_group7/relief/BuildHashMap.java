@@ -28,7 +28,7 @@ public class BuildHashMap {
 
         try {
 
-            org.json.simple.JSONObject jsonObj = (org.json.simple.JSONObject) parser.parse(new InputStreamReader(am.open("relief.json")));
+            org.json.simple.JSONObject jsonObj = (org.json.simple.JSONObject) parser.parse(new InputStreamReader(am.open("relief_tmp.json")));
             System.out.println(jsonObj);
 
 
@@ -41,9 +41,11 @@ public class BuildHashMap {
 
                 double lat = Double.parseDouble( (String)tempBuilding.get("latitude"));
                 double lon = Double.parseDouble((String) tempBuilding.get("longitude"));
+                double rating = Double.parseDouble((String) tempBuilding.get("rating"));
                 String details = (String) tempBuilding.get("details");
 
                 Building b = new Building(lat, lon, details, name);
+                b.setRating(rating);
 
                 map.put(name, b);
 

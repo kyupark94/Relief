@@ -84,6 +84,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 state = "distance";
+                sortBuildingList();
             }
         });
 
@@ -92,6 +93,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 state = "openHours";
+//                sortBuildingList(); // TODO
             }
         });
 
@@ -100,6 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 state = "rating";
+                sortBuildingList();
             }
         });
 
@@ -108,6 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 state = "cleanliness";
+                sortBuildingList();
             }
         });
     }
@@ -119,25 +123,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             buildingList.sort(new Comparator<Building>() {
                 @Override
                 public int compare(Building o1, Building o2) {
-                    double d1 = Math.sqrt(Math.pow(37.8 - o1.latitude, 2.0) + Math.pow(122.3 - o1.longitude, 2.0));
-                    double d2 = Math.sqrt(Math.pow(37.8 - o2.latitude, 2.0) + Math.pow(122.3 - o2.longitude, 2.0));
-                    return (int) (d1 - d2);
+                    double d1 = Math.sqrt(Math.pow(37.8 - o1.latitude, 2.0) + Math.pow(-122.3 - o1.longitude, 2.0));
+                    double d2 = Math.sqrt(Math.pow(37.8 - o2.latitude, 2.0) + Math.pow(-122.3 - o2.longitude, 2.0));
+                    if (d1 < d2) return -1;
+                    if (d1 > d2) return 1;
+                    return 0;
                 }
             });
-        } else if (state.equals("ratings")) {
+        } else if (state.equals("rating")) {
             buildingList.sort(new Comparator<Building>() {
                 @Override
                 public int compare(Building o1, Building o2) {
-                    return (int) (o2.rating - o1.rating);
+                    if (o2.rating < o1.rating) return -1;
+                    if (o2.rating > o1.rating) return 1;
+                    return 0;
                 }
             });
         } else if (state.equals("cleanliness")) {
             buildingList.sort(new Comparator<Building>() {
                 @Override
                 public int compare(Building o1, Building o2) {
-                    return (int) (o2.cleanliness - o1.cleanliness);
+                    if (o2.cleanliness < o1.cleanliness) return -1;
+                    if (o2.cleanliness > o1.cleanliness) return 1;
+                    return 0;
                 }
             });
+        }
+
+        if (rv.getAdapter() != null) {
+            rv.getAdapter().notifyDataSetChanged();
         }
     }
 }

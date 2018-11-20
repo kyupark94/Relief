@@ -31,9 +31,9 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
     public void onBindViewHolder(BuildingViewHolder BuildingViewHolder, int i) {
         final Building bi = buildingList.get(i);
         BuildingViewHolder.vName.setText(bi.name);
-        double distance = Math.sqrt(Math.pow(37.8 - bi.latitude, 2.0) + Math.pow(122.3 - bi.longitude, 2.0));
-        BuildingViewHolder.vDistance.setText(new DecimalFormat("#.0#").format(distance));
-        BuildingViewHolder.vRating.setText(new DecimalFormat("#.0#").format(bi.rating));
+        double distance = Math.sqrt(Math.pow(37.8 - bi.latitude, 2.0) + Math.pow(-122.3 - bi.longitude, 2.0));
+        BuildingViewHolder.vDistance.setText(new DecimalFormat("0.00#").format(distance));
+        BuildingViewHolder.vRating.setText(new DecimalFormat("0.0#").format(bi.rating));
         BuildingViewHolder.vOpenHours.setText(bi.openHours);
         BuildingViewHolder.vBuildingImg.setImageDrawable(BuildingViewHolder.vBuildingImg.getContext().getDrawable(R.drawable.ic_launcher_background));
 

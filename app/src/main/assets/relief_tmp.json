@@ -1,0 +1,112 @@
+{
+"Eshleman Hall":{"latitude":"37.868742",
+"longitude":"-122.260387",
+"details":"",
+  "rating": "4.5"
+},
+"Wheeler Hall":{"latitude":"37.871316",
+"longitude":"-122.259148",
+"details":"There are two sets of usable restrooms on the basement and first floors, both providing side transfer stalls.",
+  "rating": "3.0"
+},
+"Zellerbach Hall":{"latitude":"37.869067",
+"longitude":"-122.260832",
+"details":"One men's and one women's restrooms are usable on the second floor. Four (two men's and two women's) restrooms with side transfer stalls are provided on the third floor, although two of these require maneuvering around an obstruction with insufficient clearance (38). One women's restroom on the third floor has an additional front-transfer stall.",
+  "rating": "3.5"
+},
+"Soda Hall":{"latitude":"37.875594",
+"longitude":"-122.258786",
+"details":"Restrooms with side transfer stalls are located on floors with program areas. Location: Second Floor: south of elevators Third Floor: east from the center of building Fourth, Fifth, Sixth Floor: One to the west from center of building, another to the east for each floor. Seventh Floor: south from the center of building.",
+  "rating": "4.0"
+},
+"California Hall":{"latitude":"37.871887",
+"longitude":"-122.260351",
+"details":"",
+  "rating": "0.0"
+},
+"Doe Library":{"latitude":"37.872183",
+"longitude":"-122.259593",
+"details":"Level one restrooms provide stalls with side transfer stalls. Level two provides stalls with grab bars and room for side transfer. Each level of the Gardner Stacks (B, C, and D) provides two multiple user restrooms with stalls with grab bars and space for side transfer capabilities.",
+  "rating": "5.0"
+},
+"Cory Hall":{"latitude":"37.875037",
+"longitude":"-122.257538",
+"details":"Level one restrooms provide stalls with side transfer stalls. Level two provides stalls with grab bars and room for side transfer. Each level of the Gardner Stacks (B, C, and D) provides two multiple user restrooms with stalls with grab bars and space for side transfer capabilities.",
+  "rating": "3.0"
+},
+"Chou Hall":{"latitude":"37.872371",
+"longitude":"-122.254484",
+"details":"",
+  "rating": "5.0"
+},
+"Pimentel Hall":{"latitude":"37.873411",
+"longitude":"-122.256018",
+"details":"",
+  "rating": "1.0"
+},
+"Stanley Hall":{"latitude":"37.874002",
+"longitude":"-122.256052",
+"details":"There are usable restrooms on all floors of the building.",
+  "rating": "4.9"
+},
+"Valley Life Sciences Building":{"latitude":"37.871487",
+"longitude":"-122.262139",
+"details":"All public restrooms in the building are equipped with side transfer stalls. Location: First Floor: near center of building, north of spiral staircase. Second Floor: half way between the northeast and southeast entrances Third Floor: near center of building, north of spiral staircase. Fourth Floor: near center of building Fifth Floor: near center of building.",
+  "rating": "3.3"
+},
+"Wurster Hall":{"latitude":"37.870736",
+"longitude":"-122.254893",
+"details":"There are multiple user restrooms with side transfer stalls on the first and third floors.",
+  "rating": "2.0"
+},
+"Kroeber Hall":{"latitude":"37.869854",
+"longitude":"-122.255151",
+"details":" There is a set of usable restrooms on the first floor with side- transfer stall capabilities.",
+  "rating": "4.0"
+},
+"Latimer Hall":{"latitude":"37.873107",
+"longitude":"-122.255991",
+"details":"There is a set of usable restrooms on the ground floor with side- transfer stall capabilities.",
+  "rating": "2.5"
+},
+"Leconte Hall":{"latitude":"37.872663",
+"longitude":"-122.257526",
+"details":"Multiple user restrooms on the basement level and level one provide stalls with grab bars and space for side transfer with adjustments to stall partitions. Restrooms on levels 2 and 3 are not usable.",
+  "rating": "3.0"
+},
+"McCone Hall":{"latitude":"37.874099",
+"longitude":"-122.259652",
+"details":"There are usable restroom facilities for both women and men on levels 1-5. There are no restrooms on the ground level. Location: Level 1: directly south of center stairs Level 2: directly north of south stairs Level 3: directly north of south stairs Level 4: directly north of south stairs Level five: north of south stairs",
+  "rating": "3.0"
+},
+"Moffitt Library":{"latitude":"37.872575",
+"longitude":"-122.260752",
+"details":"Two single user restrooms on level three are usable with room for side transfer. Two multiple user restrooms on level 2, one on level 3, and two on level 4 provide stalls with grab bars, but are available for front transfer only.",
+  "rating": "1.5"
+},
+"Dwinelle Hall":{"latitude":"37.870533",
+"longitude":"-122.260604",
+"details":"There are a set of recently remodeled restrooms on the E floor of classroom wing. Both restrooms provide side transfer stalls.",
+  "rating": "2.0"
+},
+"Evans Hall":{"latitude":"37.873685",
+"longitude":"-122.257853",
+"details":"Two multiple user restrooms on the ground level that have been recently remodeled provide one usable side transfer stall and front transfer stall in each. The mens restroom on the ninth level provides a stall with grab bars and space for side transfer. Location: Ground Level: At south end of building, behind the three elevators. Ninth Level: At South end of building, behind the 3 elevators.",
+  "rating": "0.0"},
+"Etcheverry Hall":{"latitude":"37.875664",
+"longitude":"-122.259282",
+"details":" Two multiple user restrooms on level three provide stalls with grab bars and space for side transfer. Multiple user restrooms on all other levels are not usable.",
+  "rating": "3.0"
+},
+"Barrows Hall":{"latitude":"37.870032",
+"longitude":"-122.257988",
+"details":"There are usable restrooms on the basement, first and second floors.",
+  "rating": "4.0"
+},
+"Jacobs Hall":{"latitude":"37.876024",
+"longitude":"-122.258821",
+"details":"",
+  "rating": "5.0"
+}
+
+}
