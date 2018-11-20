@@ -38,8 +38,7 @@ public class Review extends AppCompatActivity {
         curr.addReview(review);
         curr.addRating(rating);
         hashmap.put(buildingName, curr);
-
-        System.out.println("switching activities");
+        //change this later
         Intent intent = new Intent(this, DetailedView.class);
         intent.putExtra("buildingName", buildingName);
         intent.putExtra("map", hashmap);
