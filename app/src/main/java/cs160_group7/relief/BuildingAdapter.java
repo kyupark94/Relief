@@ -16,9 +16,13 @@ import java.util.List;
 public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
 
     private List<Building> buildingList;
+    double curLat;
+    double curLong;
 
-    public BuildingAdapter(List<Building> bList) {
+    public BuildingAdapter(List<Building> bList, double lati, double longi) {
         this.buildingList = bList;
+        curLat = lati;
+        curLong = longi;
     }
 
     @Override
@@ -31,7 +35,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
     public void onBindViewHolder(BuildingViewHolder BuildingViewHolder, int i) {
         final Building bi = buildingList.get(i);
         BuildingViewHolder.vName.setText(bi.name);
-        double distance = Math.sqrt(Math.pow(37.8 - bi.latitude, 2.0) + Math.pow(-122.3 - bi.longitude, 2.0));
+        double distance = Math.sqrt(Math.pow(curLat - bi.latitude, 2.0) + Math.pow(curLong - bi.longitude, 2.0));
         BuildingViewHolder.vDistance.setText(new DecimalFormat("0.00#").format(distance));
         BuildingViewHolder.vRating.setText(new DecimalFormat("0.0#").format(bi.rating));
         BuildingViewHolder.vOpenHours.setText(bi.openHours);
