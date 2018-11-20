@@ -1,5 +1,6 @@
 package cs160_group7.relief;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
@@ -20,10 +21,20 @@ public class Building {
         longitude = lon;
         details = det;
         name = name_;
+        reviews = new ArrayList<String>();
+        ratings = new ArrayList<Double>();
     }
 
     public void setRating(double r) {
         rating = r;
+    }
+
+    public void addReview(String rev){
+        reviews.add(rev);
+    }
+
+    public void addRating(Double rat){
+        ratings.add(rat);
     }
 
 }
