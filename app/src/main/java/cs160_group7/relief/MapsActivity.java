@@ -23,9 +23,10 @@ import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+
     private GoogleMap mMap;
-    public HashMap<String, Building> buildingMap = new HashMap<>();
     private List<Building> buildingList = new ArrayList<>();
+    public static HashMap<String, Building> buildingMap = new HashMap<>();
     static RecyclerView rv;
     String state = "distance";
     double curLat = 37.8721;
