@@ -37,4 +37,11 @@ public class Building {
         ratings.add(rat);
     }
 
+    public void averageRatings(){
+        double sum = 0;
+        for(Double d : ratings)
+            sum += d;
+        setRating(sum/ratings.size());
+    }
+
 }
