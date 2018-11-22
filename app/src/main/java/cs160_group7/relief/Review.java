@@ -24,10 +24,12 @@ public class Review extends AppCompatActivity {
         setContentView(R.layout.review);
         Intent intent = getIntent();
        // hashmap = (HashMap<String, Building>)intent.getSerializableExtra("map");
-        buildingName = intent.getStringExtra("hall_name");
-//        curr = hashmap.get(buildingName);
         mapping_set = MapsActivity.buildingMap;
-        System.out.println("reivew map: "+ mapping_set);
+        buildingName = intent.getStringExtra("name");
+
+        curr = mapping_set.get(buildingName);
+
+
 
     }
 
@@ -43,12 +45,11 @@ public class Review extends AppCompatActivity {
         curr.averageRatings();
         mapping_set.put(buildingName, curr);
         MapsActivity.buildingMap = mapping_set;
-        System.out.println("new map!!: " +MapsActivity.buildingMap );
         //change this later
-        Intent intent = new Intent(v.getContext(), DetailedView.class);
+        Intent intent = new Intent(this, DetailedView.class);
         intent.putExtra("name", buildingName);
 
-        v.getContext().startActivity(intent);
+        startActivity(intent);
 
 //        Intent intent = new Intent(v.getContext(), DetailedView.class);
 //        intent.putExtra("name", bi.name);

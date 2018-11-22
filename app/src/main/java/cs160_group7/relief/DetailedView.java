@@ -34,8 +34,7 @@ public class DetailedView extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("building_map");
         HashMap<String, Building> mapping_set = MapsActivity.buildingMap;
 //        HashMap<String, Building> mapping_set = (HashMap<String, Building>)bundle.getSerializable("building_map");
-        System.out.println("name: " + name );
-        System.out.println("map: " + mapping_set );
+
         loadHeader(name, mapping_set);
         new restroom_description_scraper(name, mapping_set).execute();
 
@@ -45,7 +44,7 @@ public class DetailedView extends AppCompatActivity {
         TextView headerInfo = (TextView) findViewById(R.id.hall_header);
         headerInfo.setText(hall_name + "\n");
         Building hall = mapping_set.get(hall_name);
-        System.out.println("hall: "+ hall);
+
         double rating = hall.rating;
         headerInfo.append("Rating: " + rating + "/5" + "\n");
 //        String open_hours = hall.openHours;
@@ -165,8 +164,11 @@ public class DetailedView extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                // Change the name of MainActivity.class to whatever the activity file is called
+
                 Intent temp_intent = new Intent(v.getContext(), Review.class);
-                temp_intent.putExtra("hall_name", intent_hall_name);
+                temp_intent.putExtra("name", intent_hall_name);
+
+
                 startActivity(temp_intent);
             }
         });
